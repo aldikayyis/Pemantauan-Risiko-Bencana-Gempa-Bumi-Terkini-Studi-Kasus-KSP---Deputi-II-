@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_99c7bdebb5e236422a81f30a68f2cd98 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+             <h3 align="center" style="font-size:20px; font-family:Arial; margin-top:20px;"><b>
+             Dashboard Pemantauan Risiko Gempabumi Terkini (BMKG)
+             </b></h3>
+             
+    
+            <div class="folium-map" id="map_99c7bdebb5e236422a81f30a68f2cd98" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_99c7bdebb5e236422a81f30a68f2cd98 = L.map(
+                "map_99c7bdebb5e236422a81f30a68f2cd98",
+                {
+                    center: [-2.5, 118.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d16901ad73b61eb7f1d5f9e182eddbfc = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d16901ad73b61eb7f1d5f9e182eddbfc.addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+            var circle_marker_28184af26b074034528a2fd8e7ee2dcf = L.circleMarker(
+                [-6.06, 130.47],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_bd282ba27ca21bdccfe39d58cc9b371d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c4bd5dd411dd6bd6089585f44b66575 = $(`<div id="html_3c4bd5dd411dd6bd6089585f44b66575" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>231 km BaratLaut TANIMBAR</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 21 Mei 2026 | 06:12:56 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.0 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>137 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -6.06, 130.47         </div>         </div>`)[0];
+                popup_bd282ba27ca21bdccfe39d58cc9b371d.setContent(html_3c4bd5dd411dd6bd6089585f44b66575);
+            
+        
+
+        circle_marker_28184af26b074034528a2fd8e7ee2dcf.bindPopup(popup_bd282ba27ca21bdccfe39d58cc9b371d)
+        ;
+
+        
+    
+    
+            circle_marker_28184af26b074034528a2fd8e7ee2dcf.bindTooltip(
+                `<div>
+                     Mag 5.0 - 231 km BaratLaut TANIMBAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_83b3fa956e9ec68175873d8e848f020a = L.circleMarker(
+                [-8.09, 119.21],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.000000000000001, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_e0deba831736ac52bc8d3d4ae2d68b67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c8e04a58c38342c08dfbeefd3723e4e4 = $(`<div id="html_c8e04a58c38342c08dfbeefd3723e4e4" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>65 km TimurLaut KOTA-BIMA-NTB</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 20 Mei 2026 | 17:28:50 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.2 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:red;"><b>12 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -8.09, 119.21         </div>         </div>`)[0];
+                popup_e0deba831736ac52bc8d3d4ae2d68b67.setContent(html_c8e04a58c38342c08dfbeefd3723e4e4);
+            
+        
+
+        circle_marker_83b3fa956e9ec68175873d8e848f020a.bindPopup(popup_e0deba831736ac52bc8d3d4ae2d68b67)
+        ;
+
+        
+    
+    
+            circle_marker_83b3fa956e9ec68175873d8e848f020a.bindTooltip(
+                `<div>
+                     Mag 5.2 - 65 km TimurLaut KOTA-BIMA-NTB
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ce42e227691133e2e46b071968d2ae48 = L.circleMarker(
+                [-6.09, 130.56],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.5, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_c5964c71d5000cbb44bc5086dd8453d6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0fdcc0e581e94b3aab94889085a0cf24 = $(`<div id="html_0fdcc0e581e94b3aab94889085a0cf24" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>224 km BaratLaut TANIMBAR</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 15 Mei 2026 | 00:53:15 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>6.7 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>163 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -6.09, 130.56         </div>         </div>`)[0];
+                popup_c5964c71d5000cbb44bc5086dd8453d6.setContent(html_0fdcc0e581e94b3aab94889085a0cf24);
+            
+        
+
+        circle_marker_ce42e227691133e2e46b071968d2ae48.bindPopup(popup_c5964c71d5000cbb44bc5086dd8453d6)
+        ;
+
+        
+    
+    
+            circle_marker_ce42e227691133e2e46b071968d2ae48.bindTooltip(
+                `<div>
+                     Mag 6.7 - 224 km BaratLaut TANIMBAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c56aa25ca59f9e3c3c0f5584bfd345b = L.circleMarker(
+                [4.64, 127.35],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.499999999999999, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_1e15f3bfac60bb0644527cbce373ba25 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_edb21bb8a7907e0402f7ff708bf77b8d = $(`<div id="html_edb21bb8a7907e0402f7ff708bf77b8d" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>32 km Tenggara PULAUKARATUNG-SULUT</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 12 Mei 2026 | 15:54:00 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.3 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>89 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> 4.64, 127.35         </div>         </div>`)[0];
+                popup_1e15f3bfac60bb0644527cbce373ba25.setContent(html_edb21bb8a7907e0402f7ff708bf77b8d);
+            
+        
+
+        circle_marker_9c56aa25ca59f9e3c3c0f5584bfd345b.bindPopup(popup_1e15f3bfac60bb0644527cbce373ba25)
+        ;
+
+        
+    
+    
+            circle_marker_9c56aa25ca59f9e3c3c0f5584bfd345b.bindTooltip(
+                `<div>
+                     Mag 5.3 - 32 km Tenggara PULAUKARATUNG-SULUT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e49e08c434aa12e5448e2bca3929362b = L.circleMarker(
+                [-10.11, 119.3],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_27c083402cc94041a47e90220f71332f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2163c7b4c899663b72d1beda2059893e = $(`<div id="html_2163c7b4c899663b72d1beda2059893e" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>37 km BaratDaya WANOKAKA-NTT</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 05 Mei 2026 | 13:44:50 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>6.0 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:red;"><b>10 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -10.11, 119.3         </div>         </div>`)[0];
+                popup_27c083402cc94041a47e90220f71332f.setContent(html_2163c7b4c899663b72d1beda2059893e);
+            
+        
+
+        circle_marker_e49e08c434aa12e5448e2bca3929362b.bindPopup(popup_27c083402cc94041a47e90220f71332f)
+        ;
+
+        
+    
+    
+            circle_marker_e49e08c434aa12e5448e2bca3929362b.bindTooltip(
+                `<div>
+                     Mag 6.0 - 37 km BaratDaya WANOKAKA-NTT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_840fbd7a902eea8f7b3b09acd9147b09 = L.circleMarker(
+                [-6.41, 130.23],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.499999999999999, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_99a1d8e4b9a170b2a8789e85b01618fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e9e183a6892e020d0f56abf79bc0ac55 = $(`<div id="html_e9e183a6892e020d0f56abf79bc0ac55" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>210 km BaratLaut TANIMBAR</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 05 Mei 2026 | 09:38:50 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.3 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>188 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -6.41, 130.23         </div>         </div>`)[0];
+                popup_99a1d8e4b9a170b2a8789e85b01618fc.setContent(html_e9e183a6892e020d0f56abf79bc0ac55);
+            
+        
+
+        circle_marker_840fbd7a902eea8f7b3b09acd9147b09.bindPopup(popup_99a1d8e4b9a170b2a8789e85b01618fc)
+        ;
+
+        
+    
+    
+            circle_marker_840fbd7a902eea8f7b3b09acd9147b09.bindTooltip(
+                `<div>
+                     Mag 5.3 - 210 km BaratLaut TANIMBAR
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34394ae740425e561fa43714e332e18c = L.circleMarker(
+                [-5.64, 130.92],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.999999999999998, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_4bf2bf8227f4b68d649ae365d0d828fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a704dd45fd00acf49106bedea8672e17 = $(`<div id="html_a704dd45fd00acf49106bedea8672e17" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>201 km BaratLaut MALUKUTENGGARA</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 02 Mei 2026 | 17:27:11 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.6 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>114 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -5.64, 130.92         </div>         </div>`)[0];
+                popup_4bf2bf8227f4b68d649ae365d0d828fe.setContent(html_a704dd45fd00acf49106bedea8672e17);
+            
+        
+
+        circle_marker_34394ae740425e561fa43714e332e18c.bindPopup(popup_4bf2bf8227f4b68d649ae365d0d828fe)
+        ;
+
+        
+    
+    
+            circle_marker_34394ae740425e561fa43714e332e18c.bindTooltip(
+                `<div>
+                     Mag 5.6 - 201 km BaratLaut MALUKUTENGGARA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb9135fbe2ef779fe58af823310f1bc6 = L.circleMarker(
+                [-7.52, 128.53],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.499999999999998, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_54f1ddb2773174005caa51da368e21ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_084b5ff28e73c4b7763065522c03f106 = $(`<div id="html_084b5ff28e73c4b7763065522c03f106" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>107 km TimurLaut MALUKUBRTDAYA</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 02 Mei 2026 | 01:52:47 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.1 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>199 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -7.52, 128.53         </div>         </div>`)[0];
+                popup_54f1ddb2773174005caa51da368e21ef.setContent(html_084b5ff28e73c4b7763065522c03f106);
+            
+        
+
+        circle_marker_fb9135fbe2ef779fe58af823310f1bc6.bindPopup(popup_54f1ddb2773174005caa51da368e21ef)
+        ;
+
+        
+    
+    
+            circle_marker_fb9135fbe2ef779fe58af823310f1bc6.bindTooltip(
+                `<div>
+                     Mag 5.1 - 107 km TimurLaut MALUKUBRTDAYA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d197ba5c83a7dc6fdf8692eac4dc973d = L.circleMarker(
+                [-1.31, 134.4],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.499999999999998, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_90bedf8521472b90c38e8b83557c9a39 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fef87911d376522c69e6aee28673c0f1 = $(`<div id="html_fef87911d376522c69e6aee28673c0f1" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>33 km TimurLaut RANSIKI-PAPUABRT</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 01 Mei 2026 | 16:24:24 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.1 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:red;"><b>12 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -1.31, 134.4         </div>         </div>`)[0];
+                popup_90bedf8521472b90c38e8b83557c9a39.setContent(html_fef87911d376522c69e6aee28673c0f1);
+            
+        
+
+        circle_marker_d197ba5c83a7dc6fdf8692eac4dc973d.bindPopup(popup_90bedf8521472b90c38e8b83557c9a39)
+        ;
+
+        
+    
+    
+            circle_marker_d197ba5c83a7dc6fdf8692eac4dc973d.bindTooltip(
+                `<div>
+                     Mag 5.1 - 33 km TimurLaut RANSIKI-PAPUABRT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b84826951150c9bec08b37a1fb6ba37c = L.circleMarker(
+                [-4.95, 130.63],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.000000000000001, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_c9525f2a9345a4dafd0c3711341a43e8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a3295647c3706a6407102b9e3cdf9ef = $(`<div id="html_7a3295647c3706a6407102b9e3cdf9ef" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>205 km Tenggara SERAMBAGIANTIMUR-MALUKU</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 25 Apr 2026 | 16:07:07 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.2 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>119 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -4.95, 130.63         </div>         </div>`)[0];
+                popup_c9525f2a9345a4dafd0c3711341a43e8.setContent(html_7a3295647c3706a6407102b9e3cdf9ef);
+            
+        
+
+        circle_marker_b84826951150c9bec08b37a1fb6ba37c.bindPopup(popup_c9525f2a9345a4dafd0c3711341a43e8)
+        ;
+
+        
+    
+    
+            circle_marker_b84826951150c9bec08b37a1fb6ba37c.bindTooltip(
+                `<div>
+                     Mag 5.2 - 205 km Tenggara SERAMBAGIANTIMUR-MALUKU
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e475679a80939dcdc2520f01e12780d = L.circleMarker(
+                [1.18, 126.42],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.0, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_4751f8c84088263c40d4a146a58a92b0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3bc53658e0a5abb36da4f24c23c0ef58 = $(`<div id="html_3bc53658e0a5abb36da4f24c23c0ef58" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>114 km BaratLaut TERNATE-MALUT</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 24 Apr 2026 | 11:45:19 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.0 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:red;"><b>12 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> 1.18, 126.42         </div>         </div>`)[0];
+                popup_4751f8c84088263c40d4a146a58a92b0.setContent(html_3bc53658e0a5abb36da4f24c23c0ef58);
+            
+        
+
+        circle_marker_0e475679a80939dcdc2520f01e12780d.bindPopup(popup_4751f8c84088263c40d4a146a58a92b0)
+        ;
+
+        
+    
+    
+            circle_marker_0e475679a80939dcdc2520f01e12780d.bindTooltip(
+                `<div>
+                     Mag 5.0 - 114 km BaratLaut TERNATE-MALUT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4ee462ef02dcc7459e94bd9d123be9b = L.circleMarker(
+                [-7.42, 129.28],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.499999999999998, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_8fd93440b52ef33fabc9e4de25504a8a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8253c629db71018f8aec2f349f58a1f5 = $(`<div id="html_8253c629db71018f8aec2f349f58a1f5" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>184 km TimurLaut MALUKUBRTDAYA</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 24 Apr 2026 | 05:13:25 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.1 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>143 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -7.42, 129.28         </div>         </div>`)[0];
+                popup_8fd93440b52ef33fabc9e4de25504a8a.setContent(html_8253c629db71018f8aec2f349f58a1f5);
+            
+        
+
+        circle_marker_b4ee462ef02dcc7459e94bd9d123be9b.bindPopup(popup_8fd93440b52ef33fabc9e4de25504a8a)
+        ;
+
+        
+    
+    
+            circle_marker_b4ee462ef02dcc7459e94bd9d123be9b.bindTooltip(
+                `<div>
+                     Mag 5.1 - 184 km TimurLaut MALUKUBRTDAYA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c59dc9e72e7bb1ad2ef095676d9c136 = L.circleMarker(
+                [-8.99, 124.2],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_1ca37922f6c426f8cba8a371bbc76927 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ea15f67944797aa00e2cba4d6aab9ba2 = $(`<div id="html_ea15f67944797aa00e2cba4d6aab9ba2" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>67 km BaratLaut TIMORTENGAHUT-NTT</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 21 Apr 2026 | 10:17:08 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>6.0 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:red;"><b>31 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -8.99, 124.2         </div>         </div>`)[0];
+                popup_1ca37922f6c426f8cba8a371bbc76927.setContent(html_ea15f67944797aa00e2cba4d6aab9ba2);
+            
+        
+
+        circle_marker_8c59dc9e72e7bb1ad2ef095676d9c136.bindPopup(popup_1ca37922f6c426f8cba8a371bbc76927)
+        ;
+
+        
+    
+    
+            circle_marker_8c59dc9e72e7bb1ad2ef095676d9c136.bindTooltip(
+                `<div>
+                     Mag 6.0 - 67 km BaratLaut TIMORTENGAHUT-NTT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c3a36246e08dec3a0a2738c68ea3708 = L.circleMarker(
+                [-2.03, 139.25],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.000000000000002, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_a7e865d0c3b2289bce4520a9891f8a70 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_acf90d76854a8e8f381bd3bcb5282e1b = $(`<div id="html_acf90d76854a8e8f381bd3bcb5282e1b" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>57 km Tenggara SARMI-PAPUA</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 21 Apr 2026 | 01:47:06 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.4 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:red;"><b>10 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -2.03, 139.25         </div>         </div>`)[0];
+                popup_a7e865d0c3b2289bce4520a9891f8a70.setContent(html_acf90d76854a8e8f381bd3bcb5282e1b);
+            
+        
+
+        circle_marker_6c3a36246e08dec3a0a2738c68ea3708.bindPopup(popup_a7e865d0c3b2289bce4520a9891f8a70)
+        ;
+
+        
+    
+    
+            circle_marker_6c3a36246e08dec3a0a2738c68ea3708.bindTooltip(
+                `<div>
+                     Mag 5.4 - 57 km Tenggara SARMI-PAPUA
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_398a5893139404d316075ad5c5dba448 = L.circleMarker(
+                [-8.01, 124.38],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.499999999999998, "stroke": true, "weight": 1}
+            ).addTo(map_99c7bdebb5e236422a81f30a68f2cd98);
+        
+    
+        var popup_8dc5ae3db6fd497d56f19e70f3b3fb23 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0a234f3bbc149bf5c25b272b4041749f = $(`<div id="html_0a234f3bbc149bf5c25b272b4041749f" style="width: 100.0%; height: 100.0%;">         <div style="width:250px; font-family:Arial; font-size:12px;">             <h4 style="margin-bottom:5px; color:#2c3e50;"><b>36 km BaratLaut ALOR-NTT</b></h4>             <hr style="margin:5px 0;">             <b>Waktu:</b> 20 Apr 2026 | 12:19:37 WIB<br>             <b>Magnitude:</b> <span style="color:red; font-size:14px;"><b>5.1 SR</b></span><br>             <b>Kedalaman:</b> <span style="color:orange;"><b>173 km</b></span><br>             <b>Potensi:</b> Tidak berpotensi tsunami<br>             <b>Koordinat:</b> -8.01, 124.38         </div>         </div>`)[0];
+                popup_8dc5ae3db6fd497d56f19e70f3b3fb23.setContent(html_0a234f3bbc149bf5c25b272b4041749f);
+            
+        
+
+        circle_marker_398a5893139404d316075ad5c5dba448.bindPopup(popup_8dc5ae3db6fd497d56f19e70f3b3fb23)
+        ;
+
+        
+    
+    
+            circle_marker_398a5893139404d316075ad5c5dba448.bindTooltip(
+                `<div>
+                     Mag 5.1 - 36 km BaratLaut ALOR-NTT
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
